@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+dependencies {
+    compile project(':ProjectB')
+}
+
+sourceSets.main {
+    java.srcDir 'src'
+}
+
