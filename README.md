@@ -2,20 +2,13 @@
 Sample project to show the problems I'm having with multi-project builds in eclipse.
 
 #### Description
-This repo contains two projects, ProjectA and ProjectB in a similar flat folder structure to our other projects.
-ProjectA depends on ProjectB in a fairly standard multi-project build setup.
+This repo contains three projects, ProjectA, ProjectB, and ProjectC in a similar flat folder structure to our other projects.
+ProjectA and ProjectC both depend on ProjectB in a fairly standard multi-project build setup. ProjectB is buildable on its own.
 
-The projects were created in Eclipse. Once the depency between ProjectA and B was created within the build/settings scripts,
-and the builds and gradle tasks pane were refreshed, I was no longer able to run tasks in ProjectB from the gradle tasks pane.
-The same happens after I close the projects, delete them from Eclipse, and reimport ProjectA.
-
-When in this state, tasks in the subproject show a green gear next to them, the same as in the root project. However, double-clicking
-a task in the subproject does not run the task, and right-clicking it displays a "Cannot run tasks for included builds" message
-instead of "Run Gradle Tasks".
-
-If default tasks are set within the build script, they will still run when I double-click the project in the gradle tasks pane.
-It is also possible to create run configurations to run the tasks on the subproject, and to run tasks from ProjectB on the
-command line.
+The projects were created in Eclipse. The tasks pane is set to show Project Tasks, but not Task Selectors. When all three projects
+are open, the tasks pane includes one copy of both ProjectA and ProjectC, but two copies of ProjectB. One of the copies of ProjectB
+will contain runnable tasks, while the other does not. Which one is runnable depends on which project ProjectB considers to be its root.
+If I refresh the build of the other Project (A or C), the runnable copy of ProjectB switches.
 
 #### Setup
 This is my current setup:  
