@@ -1,0 +1,3 @@
+include ':ProjectB'
+project(':ProjectB').setProjectDir(new File('../ProjectB'))
+apply from: '../ProjectB/settings.gradle'
